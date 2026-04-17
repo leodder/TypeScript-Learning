@@ -7,6 +7,10 @@ import Oscars from "./components/Oscars";
 import Person from "./components/Person"
 import PersonList from "./components/PersonList";
 import Status from "./components/Status";
+// import { ThemeContextProvider } from "./components/context/ThemeContext";
+// import Box from './components/context/Box';
+import { UserContextProvider } from "./components/context/UserContext";
+import { User } from "./components/context/User";
 
 function App() {
   const firstName = "Justin";
@@ -18,6 +22,10 @@ function App() {
   ]
   return (
     <>
+      {/* <ThemeContextProvider>
+        <Box /> */}
+      <UserContextProvider>
+        <User />
       <Greet name={"Leo"} isLoggedIn={true} />
       <Person firstName={firstName} lastName={lastName} />
       <PersonList names={nameList} />
@@ -29,6 +37,8 @@ function App() {
       <Button handleClick={(event, id) => console.log("123", event, id)} >Click me</Button>
       <Input value={"Test"} handleChange={(event) => console.log(event)} />
       <Container styles={{ border: "1px solid black", padding: "10px", position: "relative", top: "10px" }} />
+      {/* </ThemeContextProvider> */}
+      </UserContextProvider>
     </>
   )
 }
