@@ -12,6 +12,7 @@ import Status from "./components/Status";
 import { UserContextProvider } from "./components/context/UserContext";
 import { User } from "./components/context/User";
 import MutableRef from "./components/ref/MutableRef";
+import List from "./components/generics/List";
 
 function App() {
   const firstName = "Justin";
@@ -23,9 +24,16 @@ function App() {
   ]
   return (
     <>
+      <List items={['Batman', 'Superman', 'Wonder Woman']} onClick={(item) => console.log(item)} />
+      <List items={[1, 2, 3]} onClick={(item) => console.log(item)} />
+      <List items={[
+        { first: "Justin", last: "Bieber" },
+        { first: "John", last: "Wick" },
+        { first: "D", last: "Trump" }
+      ]} onClick={(item) => console.log(item)} />
       {/* <ThemeContextProvider>
         <Box /> */}
-      <UserContextProvider>
+      {/* <UserContextProvider>
         <User />
         <MutableRef />
         <Greet name={"Leo"} isLoggedIn={true} />
@@ -38,9 +46,9 @@ function App() {
         </Oscars>
         <Button handleClick={(event, id) => console.log("123", event, id)} >Click me</Button>
         <Input value={"Test"} handleChange={(event) => console.log(event)} />
-        <Container styles={{ border: "1px solid black", padding: "10px", position: "relative", top: "10px" }} />
-        {/* </ThemeContextProvider> */}
-      </UserContextProvider>
+        <Container styles={{ border: "1px solid black", padding: "10px", position: "relative", top: "10px" }} /> */}
+      {/* </ThemeContextProvider> */}
+      {/* </UserContextProvider> */}
     </>
   )
 }
